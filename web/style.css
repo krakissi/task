@@ -69,3 +69,8 @@ div#head a {
 .priority_complete {
 	color: #00b000;
 }
+
+#viewdesc {
+	white-space: pre;
+	padding: 0 1em;
+}

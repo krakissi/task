@@ -36,6 +36,7 @@ case $mode in
 				sqlite3 "$database" <<< "$op"
 				echo "Title updated.<br>"
 			fi
+			echo "<a href=\"?mode=view&id=$id\">View task</a>."
 		fi
 		;;
 	add)
@@ -63,7 +64,7 @@ case $mode in
 
 		state=${rt[0]}
 		title=$(mod_find task:decode <<< "${rt[1]}" | sed 's/</\&lt;/g')
-		desc=$(mod_find task:decode <<< "${rt[2]}" | sed 's/</\&lt;/g' | sed 's//<br>/g')
+		desc=$(mod_find task:decode <<< "${rt[2]}" | sed 's/</\&lt;/g')
 
 		case $state in
 			2)	statef="Escalated" ;;
@@ -72,7 +73,7 @@ case $mode in
 			*)	statef="Other ($state)" ;;
 		esac
 		echo "<h2>$title</h2>"
-		echo "Status: $statef<p>$desc</p><a href=\"?mode=edit&id=$id\">Edit</a>"
+		echo "<h3>Status: $statef</h3><p id=\"viewdesc\">$desc</p><a href=\"?mode=edit&id=$id\">Edit This Task</a>"
 		;;
 	edit)
 		op="select title, desc from task where id='$id';"
