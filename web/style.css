@@ -71,6 +71,6 @@ div#head a {
 }
 
 #viewdesc {
-	white-space: pre;
+	white-space: pre-wrap;
 	padding: 0 1em;
 }
