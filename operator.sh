@@ -97,7 +97,7 @@ case $mode in
 EOF
 		;;
 	status)
-		op="select desc from task where status<>'0';"
+		op="select title from task where status<>'0' order by status desc;"
 		IFS=$'\n'
 		echo "Open Tasks"
 		echo "<ul>"
