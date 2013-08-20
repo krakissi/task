@@ -1,3 +1,9 @@
+/*
+	decode
+	Mike Perron (2013)
+
+	x2c and unescape_url copyright NCSA.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

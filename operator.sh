@@ -1,4 +1,5 @@
 #!/bin/bash
+# Mike Perron (2013)
 
 database="$mod_root/task/database"
 

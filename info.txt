@@ -1,3 +1,5 @@
+# Task Manager
+# Mike Perron (2013)
 list=list_tasks.sh
 op=operator.sh
 decode=decode
