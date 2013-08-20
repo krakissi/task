@@ -14,7 +14,7 @@ td:nth-child(1) {
 tr:nth-child(even) {
 	background-color: #E0E0F0;
 }
-tr:hover {
+tr.taskrow:hover {
 	background-color: #D0D0D0;
 }
 td.clickabletd {

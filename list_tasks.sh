@@ -38,7 +38,7 @@ for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task o
 		*)	statef="Other ($state)" ;;
 	esac
 cat << EOF
-<tr>
+<tr class="taskrow">
 	<td class=clickabletd title="$title" onclick="window.location='?mode=view&id=$id'">$titles</td>
 	<td class=clickabletd title="$desc" onclick="window.location='?mode=view&id=$id'">$descs</td>
 	<td>$statef</td>
