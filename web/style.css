@@ -1,0 +1,71 @@
+body {
+	font-family: sans-serif;
+}
+
+table {
+	border-spacing: 0px;
+}
+td {
+	padding-right: 15px;
+}
+td:nth-child(1) {
+	font-weight: bold;
+}
+tr:nth-child(even) {
+	background-color: #E0E0F0;
+}
+tr:hover {
+	background-color: #D0D0D0;
+}
+td.clickabletd {
+	cursor: pointer;
+}
+form input#titlebox {
+	min-width: 250px;
+	margin-bottom: 2px;
+}
+form textarea {
+	min-width: 300px;
+	margin-bottom: 2px;
+}
+form textarea#edittextarea {
+	width: 50%;
+	height: 10em;
+}
+
+#tasklist td {
+	font-family: monospace;
+}
+#tasklist a {
+	color: blue;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.inlineblock {
+	display:inline-block;
+	vertical-align:top;
+}
+#opresponse {
+	padding: 2px;
+	background-color: #E0E0E0;
+}
+
+div#head {
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+div#head a {
+	color: black;
+	text-decoration: none;
+}
+
+.priority_escalated {
+	color: #b00000;
+}
+.priority_inprogress {
+	color: #b0b000;
+}
+.priority_complete {
+	color: #00b000;
+}

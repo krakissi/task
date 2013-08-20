@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head>
+	<title>Open Tasks</title>
+	<link rel=stylesheet type=text/css href=style.css>
+</head><body>
+	<div id=head><a href="."><h1>Task Manager</h1></a></div>
+	<!-- Response Information -->
+	<div id="opresponse">
+		<????task:op>
+	</div>
+	<br>
+
+	<!-- List of Tasks -->
+	<div class=inlineblock id="tasklist">
+		<????task:list>
+	</div>
+
+	<!-- Add a New Task -->
+	<div class=inlineblock id="newtask">
+		<h2>Add a New Task</h2>
+		<form method="POST">
+			<input type="hidden" name="mode" value="add">
+			<label for="titlebox">Title</label>
+			<input name="title" id="titlebox"><br>
+			<textarea name="desc"></textarea><br>
+			<input type="submit" value="Add Task">
+		</form>
+	</div>
+
+	<!-- Other Links -->
+	<div class=inlineblock id="tools">
+		<h2>Tools</h2>
+		<a href="?mode=status">List Open Tasks for Status Reporting</a>
+	</div>
+</body></html>
