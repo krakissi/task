@@ -81,4 +81,6 @@ div#head a {
 #viewdesc {
 	white-space: pre-wrap;
 	padding: 0 1em;
+	font-family: monospace;
+	font-size: 1.2em;
 }
