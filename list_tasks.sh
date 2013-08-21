@@ -3,6 +3,9 @@
 
 database="$mod_root/task/database"
 
+IFS=$'\n'
+possiblestates=($(mod_find task:states))
+
 cat << EOF
 <table>
 <tr>
@@ -27,16 +30,16 @@ for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task o
 		descs="${desc:0:45}..."
 	fi
 	titles="$title"
-	if [ "${#title}" -ge 48]; then
+	if [ "${#title}" -ge 48 ]; then
 		titles="${title:0:45}..."
 	fi
 
-	case $state in
-		2)	statef="<span class=\"priority_escalated\">Escalated</span>" ;;
-		1)	statef="<span class=\"priority_inprogress\">In Progress</span>" ;;
-		0)	statef="<span class=\"priority_complete\">Complete</span>" ;;
-		*)	statef="Other ($state)" ;;
-	esac
+	if [ "$state" -lt "${#possiblestates[@]}" ]; then
+		statef="<span class=\"priority_$state\">${possiblestates[$state]}</span>"
+	else
+		statef="<span class=\"priority_$state\">Other ($state)</span>"
+	fi
+
 cat << EOF
 <tr class="taskrow">
 	<td class=clickabletd title="$title" onclick="window.location='?mode=view&id=$id'">$titles</td>

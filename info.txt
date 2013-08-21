@@ -2,4 +2,7 @@
 # Mike Perron (2013)
 list=list_tasks.sh
 op=operator.sh
+
+# Internal Utility
 decode=decode
+states=states.sh

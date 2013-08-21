@@ -3,6 +3,9 @@
 
 database="$mod_root/task/database"
 
+IFS=$'\n'
+possiblestates=($(mod_find task:states))
+
 read -e POST
 if [ -n "$POST" ]; then
 	declare "QUERY_STRING=$POST"
@@ -66,12 +69,11 @@ case $mode in
 		title=$(mod_find task:decode <<< "${rt[1]}" | sed 's/</\&lt;/g')
 		desc=$(mod_find task:decode <<< "${rt[2]}" | sed 's/</\&lt;/g')
 
-		case $state in
-			2)	statef="Escalated" ;;
-			1)	statef="In Progress" ;;
-			0)	statef="Complete" ;;
-			*)	statef="Other ($state)" ;;
-		esac
+		if [ "$state" -lt "${#possiblestates[@]}" ]; then
+			statef=${possiblestates[$state]}
+		else
+			statef="Other ($state)"
+		fi
 		echo "<h2>$title</h2>"
 		echo "<h3>Status: $statef</h3><p id=\"viewdesc\">$desc</p><a href=\"?mode=edit&id=$id\">Edit This Task</a>"
 		;;

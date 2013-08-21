@@ -64,13 +64,13 @@ div#head a {
 	text-decoration: none;
 }
 
-.priority_escalated {
+.priority_2 {
 	color: #b00000;
 }
-.priority_inprogress {
+.priority_1 {
 	color: #b0b000;
 }
-.priority_complete {
+.priority_0 {
 	color: #00b000;
 }
 
