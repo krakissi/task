@@ -9,5 +9,9 @@ This is a Kraknet module. In order to use this you need to:
   -  Symlink task/web/ in your web/.
       (e.g.: you@host:web/$ ln -s -T ../mods/task/web task)
 
-Most of the tool is comprised of a couple of bash scripts, with the decoding of
-URI-encoded strings performed by a small C program for speed.
+Most of the tool is comprised of a couple of bash scripts, with the
+decoding of URI-encoded strings performed by a small C program for
+speed.
+
+The backend database utilizes the sqlite3 command line tool. This must
+be installed in order to use Task Manager.
