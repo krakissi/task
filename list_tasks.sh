@@ -55,12 +55,13 @@ for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task o
 
 cat << EOF
 <tr class="taskrow">
-	<td class=clickabletd title="$title" onclick="window.location='?mode=view&id=$id'">$titles</td>
-	<td class=clickabletd title="$desc" onclick="window.location='?mode=view&id=$id'">$descs</td>
+	<td class=clickabletd title="$title" onclick="window.location='?ll=$ll&mode=view&id=$id'">$titles</td>
+	<td class=clickabletd title="$desc" onclick="window.location='?ll=$ll&mode=view&id=$id'">$descs</td>
 	<td>$statef</td>
 	<td><form>
 		<input type=hidden name=mode value=set>
 		<input type=hidden name=id value=$id>
+		<input type=hidden name=ll value=$ll>
 		<select name=state>
 			<option value=0>Complete</option>
 			<option value=1>In Progress</option>
@@ -68,7 +69,7 @@ cat << EOF
 		</select>
 		<input type=submit value="Set">
 	</form></td>
-	<td><a href="?mode=del&id=$id">Delete</a></td>
+	<td><a href="?ll=$ll&mode=del&id=$id">Delete</a></td>
 </tr>
 EOF
 done
