@@ -16,6 +16,7 @@ for ARG in $QUERY_STRING; do
 done
 
 cat << EOF
+<div id=tasklistdiv>
 <table>
 <tr>
 	<th>Task</th>
@@ -74,4 +75,7 @@ cat << EOF
 EOF
 done
 
-echo "</table>"
+cat << EOF
+</table>
+</div>
+EOF

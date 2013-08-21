@@ -37,6 +37,10 @@ form input#edittitle {
 	width: 45%;
 }
 
+#tasklistdiv {
+	max-height: 600px;
+	overflow-y: auto;
+}
 #tasklist {
 	width: 100%;
 }
