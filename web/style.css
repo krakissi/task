@@ -37,6 +37,9 @@ form input#edittitle {
 	width: 45%;
 }
 
+#tasklist {
+	width: 100%;
+}
 #tasklist td {
 	font-family: monospace;
 }
@@ -49,6 +52,7 @@ form input#edittitle {
 .inlineblock {
 	display:inline-block;
 	vertical-align:top;
+	margin: 1em;
 }
 #opresponse {
 	padding: 2px;

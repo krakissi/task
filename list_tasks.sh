@@ -6,6 +6,15 @@ database="$mod_root/task/database"
 IFS=$'\n'
 possiblestates=($(mod_find task:states))
 
+IFS="&;"
+for ARG in $QUERY_STRING; do
+	case $ARG in
+		*=*)
+			declare "${ARG%%=*}=${ARG#*=}"
+			;;
+	esac
+done
+
 cat << EOF
 <table>
 <tr>
@@ -22,6 +31,10 @@ for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task o
 	TASKA=($TASKA)
 	id=${TASKA[0]}
 	state=${TASKA[1]}
+	if [ -n "$ll" ] && [ "$state" -lt "$ll" ]; then
+		continue;
+	fi
+
 	title=$(mod_find task:decode <<< "${TASKA[2]}" | sed -e 's/</\&lt;/g' | sed -e 's/"/\&quot;/g')
 	desc=$(mod_find task:decode <<< "${TASKA[3]}" | sed -e 's/</\&lt;/g' | sed -e 's/"/\&quot;/g')
 
