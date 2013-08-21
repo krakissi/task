@@ -39,7 +39,7 @@ case $mode in
 				sqlite3 "$database" <<< "$op"
 				echo "Title updated.<br>"
 			fi
-			echo "<a href=\"?mode=view&id=$id\">View task</a>."
+			echo "<a href=\"?ll=$ll&mode=view&id=$id\">View task</a>."
 		fi
 		;;
 	add)
@@ -75,7 +75,7 @@ case $mode in
 			statef="Other ($state)"
 		fi
 		echo "<h2>$title</h2>"
-		echo "<h3>Status: $statef</h3><p id=\"viewdesc\">$desc</p><a href=\"?mode=edit&id=$id\">Edit This Task</a>"
+		echo "<h3>Status: $statef</h3><p id=\"viewdesc\">$desc</p><a href=\"?ll=$ll&mode=edit&id=$id\">Edit This Task</a>"
 		;;
 	edit)
 		op="select title, desc from task where id='$id';"
@@ -91,6 +91,7 @@ case $mode in
 <form method=POST>
 	<input type=hidden name=mode value=set>
 	<input type=hidden name=id value=$id>
+	<input type=hidden name=ll value=$ll>
 	<label for="edittitle">Title</label>
 	<input name=title id="edittitle" value="$title"><br>
 	<textarea name=desc id="edittextarea">$desc</textarea><br>
