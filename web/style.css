@@ -32,6 +32,10 @@ form textarea#edittextarea {
 	width: 50%;
 	height: 10em;
 }
+form input#edittitle {
+	min-width: 250px;
+	width: 45%;
+}
 
 #tasklist td {
 	font-family: monospace;
