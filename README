@@ -1,0 +1,13 @@
+Task Manager
+============
+
+Mike Perron (2013)
+
+This is a Kraknet module. In order to use this you need to:
+	-	Clone into your mods/ directory
+	-	Run `make` in taskmanager/src/
+	-	Symlink taskmanager/web/ in your web/.
+			(e.g.: you@host:web/$ ln -s -T ../mods/taskmanager/web taskmanager)
+
+Most of the tool is comprised of a couple of bash scripts, with the decoding of
+URI-encoded strings performed by a small C program for speed.
