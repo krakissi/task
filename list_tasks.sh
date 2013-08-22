@@ -64,9 +64,11 @@ cat << EOF
 		<input type=hidden name=id value=$id>
 		<input type=hidden name=ll value=$ll>
 		<select name=state>
-			<option value=0>Complete</option>
-			<option value=1>In Progress</option>
-			<option value=2>Escalated</option>
+EOF
+	for (( i=0; i<${#possiblestates[@]}; i++ )); do
+		echo "<option value=$i>${possiblestates[$i]}</option>"
+	done
+cat << EOF
 		</select>
 		<input type=submit value="Set">
 	</form></td>

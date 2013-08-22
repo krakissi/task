@@ -78,14 +78,15 @@ case $mode in
 		echo "<h3>Status: $statef</h3><p id=\"viewdesc\">$desc</p><a href=\"?ll=$ll&mode=edit&id=$id\">Edit This Task</a>"
 		;;
 	edit)
-		op="select title, desc from task where id='$id';"
+		op="select status, title, desc from task where id='$id';"
 		rt=$(sqlite3 "$database" <<< "$op")
 
 		IFS=$'|'
 		rt=($rt)
 
-		title=$(mod_find task:decode <<< "${rt[0]}" | sed 's/</\&lt;/g' | sed 's/"/\&quot;/g')
-		desc=$(mod_find task:decode <<< "${rt[1]}" | sed 's/</\&lt;/g' | sed 's/"/\&quot;/g')
+		declare -i state=${rt[0]}
+		title=$(mod_find task:decode <<< "${rt[1]}" | sed 's/</\&lt;/g' | sed 's/"/\&quot;/g')
+		desc=$(mod_find task:decode <<< "${rt[2]}" | sed 's/</\&lt;/g' | sed 's/"/\&quot;/g')
 
 		cat << EOF
 <form method=POST>
@@ -94,6 +95,18 @@ case $mode in
 	<input type=hidden name=ll value=$ll>
 	<label for="edittitle">Title</label>
 	<input name=title id="edittitle" value="$title"><br>
+	<label for="editstatus">Status</label>
+	<select name=state id="editstatus">
+EOF
+	for (( i=0; i<${#possiblestates[@]}; i++ )); do
+		echo -n "<option value=$i"
+		if [ "$i" -eq "$state" ]; then
+			echo -n " selected"
+		fi
+		echo ">${possiblestates[$i]}</option>"
+	done
+cat << EOF
+	</select><br>
 	<textarea name=desc id="edittextarea">$desc</textarea><br>
 	<input type=submit value="Update">
 </form>
