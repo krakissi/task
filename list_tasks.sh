@@ -14,6 +14,7 @@ for ARG in $QUERY_STRING; do
 			;;
 	esac
 done
+currentid=$id
 
 cat << EOF
 <div id=tasklistdiv>
@@ -54,8 +55,14 @@ for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task o
 		statef="<span class=\"priority_$state\">Other ($state)</span>"
 	fi
 
+	if [ "$id" -eq "$currentid" ]; then
+		currentids=" id=\"currenttaskinlist\""
+	else
+		currentids=""
+	fi
+
 cat << EOF
-<tr class="taskrow">
+<tr class="taskrow"$currentids>
 	<td class=clickabletd title="$title" onclick="window.location='?ll=$ll&mode=view&id=$id'">$titles</td>
 	<td class=clickabletd title="$desc" onclick="window.location='?ll=$ll&mode=view&id=$id'">$descs</td>
 	<td>$statef</td>

@@ -12,14 +12,21 @@ td:nth-child(1) {
 	font-weight: bold;
 }
 tr:nth-child(even) {
-	background-color: #E0E0F0;
+	background-color: #e0e0f0;
 }
 tr.taskrow:hover {
-	background-color: #D0D0D0;
+	background-color: #d0d0e0;
 }
 td.clickabletd {
 	cursor: pointer;
 }
+tr#currenttaskinlist {
+	background-color: #f0d0d0;
+}
+tr#currenttaskinlist:hover {
+	background-color: #f0c0c0;
+}
+
 form input#titlebox {
 	min-width: 250px;
 	margin-bottom: 2px;
@@ -88,3 +95,4 @@ div#head a {
 	font-family: monospace;
 	font-size: 1.2em;
 }
+
