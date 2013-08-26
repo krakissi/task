@@ -4,7 +4,7 @@
 database="$mod_root/task/database"
 
 IFS=$'\n'
-possiblestates=($(mod_find task:states))
+possiblestates=($(< $mod_root/task/states))
 
 read -e POST
 if [ -n "$POST" ]; then

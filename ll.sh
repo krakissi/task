@@ -2,7 +2,7 @@
 # Mike Perron (2013)
 
 IFS=$'\n'
-possiblestates=($(mod_find task:states))
+possiblestates=($(< $mod_root/task/states))
 
 IFS="&;"
 for ARG in $QUERY_STRING; do
