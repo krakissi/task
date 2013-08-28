@@ -4,7 +4,6 @@ OIFS=$IFS
 
 
 database="$mod_root/task/database"
-IFS=$'\n'
 possiblestates=("Complete" "In Progress" "Escalated")
 
 IFS="&;"
