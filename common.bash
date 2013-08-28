@@ -5,7 +5,7 @@ OIFS=$IFS
 
 database="$mod_root/task/database"
 IFS=$'\n'
-possiblestates=($(< $mod_root/task/states))
+possiblestates=("Complete" "In Progress" "Escalated")
 
 IFS="&;"
 for ARG in $QUERY_STRING; do
