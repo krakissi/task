@@ -1,18 +1,6 @@
 #!/bin/bash
 # Mike Perron (2013)
-
-IFS=$'\n'
-possiblestates=($(< $mod_root/task/states))
-
-IFS="&;"
-for ARG in $QUERY_STRING; do
-	case $ARG in
-		*=*)
-			declare "${ARG%%=*}=${ARG#*=}"
-			;;
-	esac
-done
-
+. common.bash
 
 cat << EOF
 	<form>

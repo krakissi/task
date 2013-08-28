@@ -1,25 +1,10 @@
 #!/bin/bash
 # Mike Perron (2013)
-
-database="$mod_root/task/database"
-
-IFS=$'\n'
-possiblestates=($(< $mod_root/task/states))
-
 read -e POST
 if [ -n "$POST" ]; then
 	declare "QUERY_STRING=$POST"
-#	echo "Using POST data: <span>$POST</span>"
 fi
-
-IFS="&;"
-for ARG in $QUERY_STRING; do
-	case $ARG in
-		*=*)
-			declare "${ARG%%=*}=${ARG#*=}"
-			;;
-	esac
-done
+. common.bash
 
 case $mode in
 	set)
