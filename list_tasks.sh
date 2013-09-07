@@ -43,7 +43,7 @@ for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task o
 		statef="<span class=\"priority_$state\">Other ($state)</span>"
 	fi
 
-	if [ "$id" -eq "$currentid" ]; then
+	if [ -n "$currentid" ] && [ "$id" -eq "$currentid" ]; then
 		currentids=" id=\"currenttaskinlist\""
 	else
 		currentids=""

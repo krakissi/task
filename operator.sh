@@ -45,7 +45,10 @@ case $mode in
 		;;
 	view)
 		op="select status, title, desc from task where id='$id';"
-		rt=$(sqlite3 "$database" <<< "$op")
+		if ! rt=$(sqlite3 "$database" <<< "$op") || [ -z "$rt" ]; then
+			echo "Error: Could not find that task."
+			exit 1
+		fi
 
 		IFS=$'|'
 		rt=($rt)
