@@ -2,7 +2,8 @@
 # Mike Perron (2013)
 . common.bash
 
-currentid=$id
+currentid=$qs_id
+ll=$qs_ll
 
 cat << EOF
 <div id=tasklistdiv>

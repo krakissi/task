@@ -2,6 +2,8 @@
 # Mike Perron (2013)
 . common.bash
 
+ll=$qs_ll
+
 cat << EOF
 	<form>
 		<select name=ll>

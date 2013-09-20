@@ -6,7 +6,14 @@ if [ -n "$POST" ]; then
 fi
 . common.bash
 
-case $mode in
+state=$qs_state
+title=$qs_title
+desc=$qs_desc
+mode=$qs_mode
+id=$qs_id
+ll=$qs_ll
+
+case "$mode" in
 	set)
 		if [ -n "$id" ]; then
 			if [ -n "$state" ]; then

@@ -8,9 +8,9 @@ possiblestates=("Complete" "In Progress" "Escalated")
 
 IFS="&;"
 for ARG in $QUERY_STRING; do
-	case $ARG in
+	case "$ARG" in
 		*=*)
-			declare "${ARG%%=*}=${ARG#*=}"
+			declare "qs_${ARG%%=*}=${ARG#*=}"
 			;;
 	esac
 done
