@@ -16,7 +16,7 @@ cat << EOF
 EOF
 
 IFS=$'\n'
-for TASKA in $(sqlite3 $database <<< "select id, status, title, desc from task order by status desc;"); do
+for TASKA in $(sqlite3 "$database" <<< "select id, status, title, desc from task order by status desc;"); do
 	IFS=$'|'
 	TASKA=($TASKA)
 	id=${TASKA[0]}
